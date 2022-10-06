@@ -1,7 +1,6 @@
 import React from "react";
 
 const ReturnMajor = () => {
-  const [filter, setFilter] = React.useState("");
   const [display, setDisplay] = React.useState(false);
   const [users, setUsers] = React.useState([]);
   const [major, setMajor] = React.useState([]);
@@ -19,8 +18,7 @@ const ReturnMajor = () => {
     users.filter((user) => {
       const arrUser = user.birthdate.substring(4);
       const date = new Date().getFullYear();
-      // console.log(arrUser - date > 18 === true);
-      console.log(arrUser);
+
       if (date - arrUser >= 18) {
         let obj = {
           id: user.id,
@@ -44,11 +42,6 @@ const ReturnMajor = () => {
         ⦁ Desenvolva uma função que retorne todos os usuários que são maiores de
         idade.
       </h1>
-      <input
-        type="text"
-        value={filter}
-        onChange={({ target }) => setFilter(target.value.toUpperCase())}
-      />
       <div>
         <button onClick={handleClick}>
           {display ? "Mostrar" : "Esconder "}{" "}
