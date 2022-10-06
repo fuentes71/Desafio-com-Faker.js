@@ -9,12 +9,12 @@ import AddCostumer from "./Challenges/AddCustomer";
 const Returns = () => {
   return (
     <>
-      {/* <ReturnFullName />
+      <ReturnFullName />
       <ReturnFirstName />
-      <ReturnFilterName /> 
+      <ReturnFilterName />
       <ReturnMajor />
       <SalesAmount />
-      <Sales />*/}
+      <Sales />
       <AddCostumer />
     </>
   );

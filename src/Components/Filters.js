@@ -8,12 +8,12 @@ import Purchases from "./Challenges/Purchases";
 const Filters = () => {
   return (
     <>
-      {/* <Filter />
-       <FilterName />
+      <Filter />
+      <FilterName />
       <FilterIndex />
       <FilterFirstName />
-      <CheckList /> 
-      <Purchases />*/}
+      <CheckList />
+      <Purchases />
     </>
   );
 };
