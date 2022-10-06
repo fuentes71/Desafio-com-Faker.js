@@ -1,0 +1,63 @@
+body {
+  background-color: #282c34;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 0.5vmin);
+  color: white;
+  height: 100%;
+}
+button {
+  font-size: 1rem;
+  border: solid 2px white;
+  border-radius: 10px;
+  color: white;
+  letter-spacing: 1px;
+
+  background-color: cornflowerblue;
+}
+input {
+  color: white;
+  background-color: cornflowerblue;
+  border-radius: 10px;
+  border: solid 1px white;
+  margin: 10px;
+  padding: 4px 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+h1 {
+  font-size: 1.5rem;
+  color: whitesmoke;
+  line-height: 2rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+ul,
+li {
+  text-decoration: none;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  border: solid 2px whitesmoke;
+  padding: 5px 30px;
+  margin: 10px auto;
+  margin-left: -17%;
+}

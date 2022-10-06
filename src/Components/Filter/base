@@ -1,0 +1,31 @@
+import React from "react";
+import { Users } from "../../Components/Users/Users";
+const Filter = () => {
+  const [filter, setFilter] = React.useState("");
+  const [users, setUsers] = React.useState([]);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const response = await fetch(`http://localhost:3333/users?q=${filter}`);
+    const data = await response.json();
+    setUsers(data);
+  }
+
+  console.log(users);
+  return (
+    <>
+      <h1>usuarios</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={filter}
+          onChange={({ target }) => setFilter(target.value)}
+        />
+        <button type="submit">Procurar</button>
+      </form>
+      <Users users={users} />
+    </>
+  );
+};
+
+export default Filter;
