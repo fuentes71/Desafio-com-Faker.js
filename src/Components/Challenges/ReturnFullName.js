@@ -2,7 +2,7 @@ import React from "react";
 
 const FilterName = () => {
   const [users, setUsers] = React.useState([]);
-
+  const [display, setDisplay] = React.useState(false);
   const [name, setName] = React.useState([]);
 
   React.useEffect(() => {
@@ -12,8 +12,6 @@ const FilterName = () => {
     const response = await fetch(`http://localhost:3333/users?q=`);
     const json = await response.json();
     setUsers(json);
-
-    console.log("FullName: ok");
   }
 
   const nameClient = () => {
@@ -26,21 +24,32 @@ const FilterName = () => {
       });
     setName(info);
   };
-
+  function handleClick() {
+    setDisplay(!display);
+    nameClient();
+  }
   return (
     <>
       <h1>⦁ Desenvolva uma função que retorne apenas os nomes dos clientes.</h1>
-      <button onClick={nameClient}>Mostrar</button>
+      <div>
+        <button onClick={handleClick}>
+          {display ? "Mostrar" : "Esconder "}{" "}
+        </button>
+      </div>{" "}
       <h2>Nome Completo</h2>
-      <ul>
-        {name.map((name, index) => (
-          <div key={index}>
-            <section>
-              <p>Nome: {name}</p>
-            </section>
-          </div>
-        ))}
-      </ul>
+      {display ? (
+        ""
+      ) : (
+        <ul>
+          {name.map((name, index) => (
+            <div key={index}>
+              <section>
+                <p>Nome: {name}</p>
+              </section>
+            </div>
+          ))}
+        </ul>
+      )}
     </>
   );
 };

@@ -10,8 +10,6 @@ const Filter = () => {
   async function api() {
     const response = await fetch(`http://localhost:3333/users?q=${filter}`);
     const json = await response.json();
-    console.log("FilterFirstName: ok");
-
     if (filter === "") {
       setUsers(json);
     } else {
@@ -20,8 +18,6 @@ const Filter = () => {
   }
 
   function filterSourch() {
-    users.map((user) => user.name.slice(0, 1) === filter);
-
     let info = 0;
     users.filter((user) => {
       const arrUser = user.name.slice(0, 1) === filter;
@@ -30,7 +26,6 @@ const Filter = () => {
       }
     });
     setSourchQuantity(info);
-    console.log(info);
   }
 
   return (

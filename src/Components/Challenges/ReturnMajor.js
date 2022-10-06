@@ -1,28 +1,27 @@
 import React from "react";
 
-const Filter = () => {
+const ReturnMajor = () => {
   const [filter, setFilter] = React.useState("");
-  const [users, setUsers] = React.useState([]);
   const [display, setDisplay] = React.useState(false);
-
+  const [users, setUsers] = React.useState([]);
+  const [major, setMajor] = React.useState([]);
   React.useEffect(() => {
     api();
   }, []);
   async function api() {
-    const response = await fetch(`http://localhost:3333/users?q=${filter}`);
+    const response = await fetch(`http://localhost:3333/users?q=`);
     const json = await response.json();
-    if (filter === "") {
-      setUsers(json);
-    } else {
-      filterSourch();
-    }
+    setUsers(json);
   }
 
-  function filterSourch() {
-    const info = [];
+  function searchOfAge() {
+    let info = [];
     users.filter((user) => {
-      const arrUser = user.name.slice(0, 1) === filter;
-      if (arrUser) {
+      const arrUser = user.birthdate.substring(4);
+      const date = new Date().getFullYear();
+      // console.log(arrUser - date > 18 === true);
+      console.log(arrUser);
+      if (date - arrUser >= 18) {
         let obj = {
           id: user.id,
           name: user.name,
@@ -33,14 +32,17 @@ const Filter = () => {
         info.push(obj);
       }
     });
-    setUsers(info);
+    setMajor(info);
+  }
+  function handleClick() {
+    setDisplay(!display);
+    searchOfAge();
   }
   return (
     <>
       <h1>
-        ⦁ Desenvolva, utilizando filter , uma função que, dado um caractere de
-        entrada, retorne todos os registros de clientes cujo o nome inicia com o
-        caractere dado.
+        ⦁ Desenvolva uma função que retorne todos os usuários que são maiores de
+        idade.
       </h1>
       <input
         type="text"
@@ -48,16 +50,16 @@ const Filter = () => {
         onChange={({ target }) => setFilter(target.value.toUpperCase())}
       />
       <div>
-        <button onClick={filterSourch}>Pesquisar</button>{" "}
-        <button onClick={() => setDisplay(!display)}>
-          {display ? "Mostrar" : "Esconder"}
+        <button onClick={handleClick}>
+          {display ? "Mostrar" : "Esconder "}{" "}
         </button>
-      </div>
+      </div>{" "}
+      <p>Mostrar maiores de idade</p>
       {display ? (
         ""
       ) : (
         <ul>
-          {users.map((user) => (
+          {major.map((user) => (
             <div key={user.id}>
               <section>
                 <p>
@@ -81,9 +83,9 @@ const Filter = () => {
             </div>
           ))}
         </ul>
-      )}
+      )}{" "}
     </>
   );
 };
 
-export default Filter;
+export default ReturnMajor;

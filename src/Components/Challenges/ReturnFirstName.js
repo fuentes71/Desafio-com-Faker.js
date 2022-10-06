@@ -2,20 +2,15 @@ import React from "react";
 
 const FilterName = () => {
   const [users, setUsers] = React.useState([]);
-
+  const [display, setDisplay] = React.useState(false);
   const [name, setName] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
   React.useEffect(() => {
     api();
-    setLoading(true);
   }, []);
   async function api() {
     const response = await fetch(`http://localhost:3333/users?q=`);
     const json = await response.json();
     setUsers(json);
-    setLoading(false);
-
-    console.log("FirstName: ok");
   }
 
   const nameClient = () => {
@@ -28,23 +23,34 @@ const FilterName = () => {
       });
     setName(info);
   };
-
+  function handleClick() {
+    setDisplay(!display);
+    nameClient();
+  }
   return (
     <>
       <h1>
         ⦁ Desenvolva uma função que retorne apenas o primeiro nome dos clientes
       </h1>
-      <button onClick={nameClient}>Mostrar</button>
+      <div>
+        <button onClick={handleClick}>
+          {display ? "Mostrar" : "Esconder"}
+        </button>
+      </div>
       <h2>Primeiro Nome:</h2>
-      <ul>
-        {name.map((name, index) => (
-          <div key={index}>
-            <section>
-              <p>Nome: {name}</p>
-            </section>
-          </div>
-        ))}
-      </ul>
+      {display ? (
+        ""
+      ) : (
+        <ul>
+          {name.map((name, index) => (
+            <div key={index}>
+              <section>
+                <p>Nome: {name}</p>
+              </section>
+            </div>
+          ))}
+        </ul>
+      )}
     </>
   );
 };

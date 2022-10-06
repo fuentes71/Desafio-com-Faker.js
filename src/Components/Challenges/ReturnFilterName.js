@@ -3,23 +3,23 @@ import React from "react";
 const Filter = () => {
   const [filter, setFilter] = React.useState("");
   const [users, setUsers] = React.useState([]);
-  const [sourch, setSourch] = React.useState([]);
+  const [search, setSearch] = React.useState([]);
+  const [display, setDisplay] = React.useState(false);
+
   React.useEffect(() => {
     api();
   }, []);
   async function api() {
     const response = await fetch(`http://localhost:3333/users?q=${filter}`);
     const json = await response.json();
-    console.log("ReturnFilterName: ok");
-
     if (filter === "") {
       setUsers(json);
     } else {
-      filterSourch();
+      filterSearch();
     }
   }
 
-  function filterSourch() {
+  function filterSearch() {
     const info = [];
     users.filter((user) => {
       const arrUser = user.name.slice(0, 1) === filter;
@@ -28,10 +28,9 @@ const Filter = () => {
         info.push(firstName[0]);
       }
     });
-    setSourch(info);
-    console.log(info);
-    console.log(sourch);
+    setSearch(info);
   }
+
   return (
     <>
       <h1>
@@ -43,21 +42,30 @@ const Filter = () => {
         value={filter}
         onChange={({ target }) => setFilter(target.value.toUpperCase())}
       />
-      <button onClick={filterSourch}>Pesquisar</button>
-      <ul>
-        {sourch.map((user) => (
-          <div key={user.id}>
-            <section>
-              <p>
-                <strong>Nome: </strong>
-                {user}
-              </p>
+      <div>
+        <button onClick={filterSearch}>Pesquisar</button>{" "}
+        <button onClick={() => setDisplay(!display)}>
+          {display ? "Mostrar" : "Esconder"}
+        </button>
+      </div>
+      {display ? (
+        ""
+      ) : (
+        <ul>
+          {search.map((user) => (
+            <div key={user.id}>
+              <section>
+                <p>
+                  <strong>Nome: </strong>
+                  {user}
+                </p>
 
-              <br />
-            </section>
-          </div>
-        ))}
-      </ul>
+                <br />
+              </section>
+            </div>
+          ))}
+        </ul>
+      )}
     </>
   );
 };
