@@ -9,8 +9,8 @@ export function Users({ users }) {
           key={user.id}
           id={user.id}
           name={user.name}
-          // genre={user.genre}
           birthdate={user.birthdate}
+          genre={user.genre}
           lastPurchaseDate={user.lastPurchaseDate}
           countPurchase={user.countPurchase}
         />

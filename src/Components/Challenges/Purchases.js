@@ -1,28 +1,24 @@
 import React from "react";
 
-const Filter = () => {
-  const [filter, setFilter] = React.useState("");
+const Purchases = () => {
   const [users, setUsers] = React.useState([]);
+  const [filter, setFilter] = React.useState([]);
   const [display, setDisplay] = React.useState(false);
 
   React.useEffect(() => {
     api();
+    filterPurchase();
   }, []);
   async function api() {
-    const response = await fetch(`http://localhost:3333/users?q=${filter}`);
+    const response = await fetch(`http://localhost:3333/users?q=`);
     const json = await response.json();
-    if (filter === "") {
-      setUsers(json);
-    } else {
-      filterSourch();
-    }
+    setUsers(json);
   }
-
-  function filterSourch() {
-    const info = [];
+  function filterPurchase() {
+    let info = [];
     users.filter((user) => {
-      const arrUser = user.name.slice(0, 1) === filter;
-      if (arrUser) {
+      const arrUser = user.countPurchase;
+      if (arrUser > 15) {
         let obj = {
           id: user.id,
           name: user.name,
@@ -31,25 +27,19 @@ const Filter = () => {
           countPurchase: user.countPurchase,
         };
         info.push(obj);
+        console.log(info);
       }
     });
-    setUsers(info);
+    setFilter(info);
   }
+
   return (
     <>
       <h1>
-        ⦁ Desenvolva, utilizando filter , uma função que, dado um caractere de
-        entrada, retorne todos os registros de clientes cujo o nome inicia com o
-        caractere dado.
+        ⦁ Implemente uma função que retorne os dados dos clientes que já
+        realizaram mais de 15 compras.
       </h1>
-      <input
-        type="text"
-        value={filter}
-        placeholder="Pesquisar Por Caracter"
-        onChange={({ target }) => setFilter(target.value.toUpperCase())}
-      />
       <div>
-        <button onClick={filterSourch}>Pesquisar</button>{" "}
         <button onClick={() => setDisplay(!display)}>
           {display ? "Mostrar" : "Esconder"}
         </button>
@@ -58,7 +48,7 @@ const Filter = () => {
         ""
       ) : (
         <ul>
-          {users.map((user) => (
+          {filter.map((user) => (
             <div key={user.id}>
               <section>
                 <p>
@@ -86,5 +76,4 @@ const Filter = () => {
     </>
   );
 };
-
-export default Filter;
+export default Purchases;

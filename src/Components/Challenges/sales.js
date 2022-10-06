@@ -1,28 +1,27 @@
 import React from "react";
 
-const Filter = () => {
-  const [filter, setFilter] = React.useState("");
-  const [users, setUsers] = React.useState([]);
+const Sales = () => {
   const [display, setDisplay] = React.useState(false);
-
+  const [users, setUsers] = React.useState([]);
+  const [sales, setSales] = React.useState([]);
   React.useEffect(() => {
     api();
   }, []);
   async function api() {
-    const response = await fetch(`http://localhost:3333/users?q=${filter}`);
+    const response = await fetch(`http://localhost:3333/users?q=`);
     const json = await response.json();
-    if (filter === "") {
-      setUsers(json);
-    } else {
-      filterSourch();
-    }
+    setUsers(json);
   }
 
-  function filterSourch() {
-    const info = [];
+  function searchSales() {
+    let info = [];
     users.filter((user) => {
-      const arrUser = user.name.slice(0, 1) === filter;
-      if (arrUser) {
+      const arrUser = user.lastPurchaseDate.substring(4).replace("/", "");
+      const date = new Date().getFullYear();
+      console.log(date);
+      console.log(arrUser);
+      console.log(date - arrUser);
+      if (date - arrUser >= 1) {
         let obj = {
           id: user.id,
           name: user.name,
@@ -31,34 +30,32 @@ const Filter = () => {
           countPurchase: user.countPurchase,
         };
         info.push(obj);
+        console.log(info);
       }
     });
-    setUsers(info);
+    setSales(info);
+  }
+  function handleClick() {
+    setDisplay(!display);
+    searchSales();
   }
   return (
     <>
       <h1>
-        ⦁ Desenvolva, utilizando filter , uma função que, dado um caractere de
-        entrada, retorne todos os registros de clientes cujo o nome inicia com o
-        caractere dado.
+        ⦁ Implemente uma função que retorne os dados dos clientes que não
+        compram há mais de 1 ano.
       </h1>
-      <input
-        type="text"
-        value={filter}
-        placeholder="Pesquisar Por Caracter"
-        onChange={({ target }) => setFilter(target.value.toUpperCase())}
-      />
       <div>
-        <button onClick={filterSourch}>Pesquisar</button>{" "}
-        <button onClick={() => setDisplay(!display)}>
-          {display ? "Mostrar" : "Esconder"}
+        <button onClick={handleClick}>
+          {display ? "Mostrar" : "Esconder "}{" "}
         </button>
-      </div>
+      </div>{" "}
+      <p>Dados de clientes que não compram há mais de 1 ano</p>
       {display ? (
         ""
       ) : (
         <ul>
-          {users.map((user) => (
+          {sales.map((user) => (
             <div key={user.id}>
               <section>
                 <p>
@@ -82,9 +79,9 @@ const Filter = () => {
             </div>
           ))}
         </ul>
-      )}
+      )}{" "}
     </>
   );
 };
 
-export default Filter;
+export default Sales;

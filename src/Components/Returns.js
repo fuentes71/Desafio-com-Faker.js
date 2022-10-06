@@ -3,13 +3,19 @@ import ReturnFirstName from "./Challenges/ReturnFirstName";
 import ReturnFullName from "./Challenges/ReturnFullName";
 import ReturnFilterName from "./Challenges/ReturnFilterName";
 import ReturnMajor from "./Challenges/ReturnMajor";
+import SalesAmount from "./Challenges/SalesAmount";
+import Sales from "./Challenges/sales";
+import AddCostumer from "./Challenges/AddCustomer";
 const Returns = () => {
   return (
     <>
-      <ReturnFullName />
+      {/* <ReturnFullName />
       <ReturnFirstName />
-      <ReturnFilterName />
+      <ReturnFilterName /> 
       <ReturnMajor />
+      <SalesAmount />
+      <Sales />*/}
+      <AddCostumer />
     </>
   );
 };

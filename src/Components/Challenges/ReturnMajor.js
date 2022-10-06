@@ -16,7 +16,7 @@ const ReturnMajor = () => {
   function searchOfAge() {
     let info = [];
     users.filter((user) => {
-      const arrUser = user.birthdate.substring(4);
+      const arrUser = user.birthdate.substring(4).replace("/", "");
       const date = new Date().getFullYear();
 
       if (date - arrUser >= 18) {

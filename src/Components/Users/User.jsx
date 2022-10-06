@@ -7,7 +7,7 @@ export function User({ id, name, birthdate, lastPurchaseDate, countPurchase }) {
         <span>Id: {id}</span>
         <span>Nome: {name}</span>
         <span>Data de nascimento: {birthdate}</span>
-        {/* <p>Genero: {name.genre}</p> */}
+        <p>Genero: {name.genre}</p>
         <span>Ultima Compra: {lastPurchaseDate}</span>
         <br />
         <span>Total de Compras: {countPurchase}</span>

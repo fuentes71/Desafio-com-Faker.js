@@ -40,6 +40,7 @@ const Filter = () => {
       <input
         type="text"
         value={filter}
+        placeholder="Pesquisar Por Caracter"
         onChange={({ target }) => setFilter(target.value.toUpperCase())}
       />
       <div>

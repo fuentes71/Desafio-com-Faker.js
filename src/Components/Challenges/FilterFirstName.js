@@ -3,7 +3,7 @@ import React from "react";
 const Filter = () => {
   const [filter, setFilter] = React.useState("");
   const [users, setUsers] = React.useState([]);
-  const [sourchQuantity, setSourchQuantity] = React.useState();
+  const [search, setSearchQuantity] = React.useState();
   React.useEffect(() => {
     api();
   }, []);
@@ -25,7 +25,7 @@ const Filter = () => {
         return (info += 1);
       }
     });
-    setSourchQuantity(info);
+    setSearchQuantity(info);
   }
 
   return (
@@ -37,11 +37,12 @@ const Filter = () => {
       <input
         type="text"
         value={filter}
+        placeholder="Pesquisar Por Caracter"
         onChange={({ target }) => setFilter(target.value.toUpperCase())}
       />
       <button onClick={filterSourch}>Pesquisar</button>
       <p>Total de pessoas registradas com a letra pesquisada:</p>
-      <h2>{sourchQuantity}</h2>
+      <h2>{search}</h2>
     </>
   );
 };

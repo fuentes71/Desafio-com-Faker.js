@@ -33,6 +33,12 @@ input {
   font-size: 0.8rem;
   text-align: center;
 }
+
+input::placeholder {
+  color: white;
+  font-size: 0.8rem;
+  text-align: center;
+}
 h1 {
   font-size: 1.5rem;
   color: whitesmoke;
