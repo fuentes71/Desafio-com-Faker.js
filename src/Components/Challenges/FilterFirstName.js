@@ -1,5 +1,4 @@
 import React from "react";
-import { Users } from "./Users/Users";
 
 const Filter = () => {
   const [filter, setFilter] = React.useState("");

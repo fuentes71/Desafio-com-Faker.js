@@ -4,18 +4,16 @@ const FilterName = () => {
   const [users, setUsers] = React.useState([]);
 
   const [name, setName] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
+
   React.useEffect(() => {
     api();
-    setLoading(true);
   }, []);
   async function api() {
     const response = await fetch(`http://localhost:3333/users?q=`);
     const json = await response.json();
     setUsers(json);
-    setLoading(false);
 
-    console.log("FirstName: ok");
+    console.log("FullName: ok");
   }
 
   const nameClient = () => {
