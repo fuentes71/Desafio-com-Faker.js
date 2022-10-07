@@ -19,7 +19,12 @@ const FilterName = () => {
     users.map((user) => {
       const arrUser = user.name;
       if (arrUser) {
-        info.push(user.name.replace(" ", "_", user).toUpperCase());
+        info.push(
+          user.name
+            .replace(" ", "_", user)
+            .replace(" ", "_", user)
+            .toUpperCase()
+        );
       }
       setFilterName(info);
     });

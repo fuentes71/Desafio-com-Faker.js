@@ -15,15 +15,20 @@ const CheckList = () => {
   }
   function filterSearch() {
     const info = [];
+    setCheck(false);
     users
       .filter((user) => user.name.slice(0, 1))
-      .map(function (user) {
+      .map((user) => {
+        console.log(check);
         const firstName = user.name.split(" ");
         return info.push(firstName[0].toUpperCase());
       });
-    info.map((check) => {
-      if (check === filter) {
-        setCheck(true);
+    info.map((user) => {
+      console.log(info);
+      if (user === filter) {
+        return setCheck(true);
+      } else {
+        return setCheck(false);
       }
     });
   }

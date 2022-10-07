@@ -12,11 +12,8 @@ const Filter = () => {
   async function api() {
     const response = await fetch(`http://localhost:3333/users?q=${filter}`);
     const json = await response.json();
-    if (filter === "") {
-      setUsers(json);
-    } else {
-      filterSearch();
-    }
+    setUsers(json);
+    filterSearch();
   }
 
   function filterSearch() {
@@ -25,7 +22,8 @@ const Filter = () => {
       const arrUser = user.name.slice(0, 1) === filter;
       if (arrUser) {
         const firstName = user.name.split(" ");
-        info.push(firstName[0]);
+
+        return info.push(firstName[0]);
       }
     });
     setSearch(info);
@@ -53,8 +51,8 @@ const Filter = () => {
         ""
       ) : (
         <ul>
-          {search.map((user) => (
-            <div key={user.id}>
+          {search.map((user, index) => (
+            <div key={index}>
               <section>
                 <p>
                   <strong>Nome: </strong>

@@ -63,6 +63,10 @@ const Sales = () => {
                   {user.name}
                 </p>
                 <p>
+                  <strong>Genero: </strong>
+                  {user.genre}
+                </p>
+                <p>
                   <strong>Aniversario: </strong>
                   {user.birthdate}
                 </p>

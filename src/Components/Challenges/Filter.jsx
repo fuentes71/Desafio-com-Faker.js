@@ -27,6 +27,7 @@ const Filter = () => {
           id: user.id,
           name: user.name,
           birthdate: user.birthdate,
+          genre: user.genre,
           lastPurchaseDate: user.lastPurchaseDate,
           countPurchase: user.countPurchase,
         };
@@ -64,6 +65,10 @@ const Filter = () => {
                 <p>
                   <strong>Nome: </strong>
                   {user.name}
+                </p>
+                <p>
+                  <strong>Genero: </strong>
+                  {user.genre}
                 </p>
                 <p>
                   <strong>Aniversario: </strong>

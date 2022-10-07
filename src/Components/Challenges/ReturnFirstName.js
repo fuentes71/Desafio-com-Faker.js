@@ -17,9 +17,13 @@ const FilterName = () => {
     const info = [];
     users
       .filter((user) => user.name.slice(0, 1))
-      .map(function (user) {
+      .map((user) => {
         const firstName = user.name.split(" ");
-        return info.push(firstName[0]);
+        if (firstName !== "Sr.") {
+          info.push(firstName[0]);
+        } else {
+          info.push(firstName[0]);
+        }
       });
     setName(info);
   };

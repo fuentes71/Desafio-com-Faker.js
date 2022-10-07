@@ -7,13 +7,15 @@ const Purchases = () => {
 
   React.useEffect(() => {
     api();
+
     filterPurchase();
-  }, []);
+  }, [display, filterPurchase]);
   async function api() {
     const response = await fetch(`http://localhost:3333/users?q=`);
     const json = await response.json();
     setUsers(json);
   }
+
   function filterPurchase() {
     let info = [];
     users.filter((user) => {
@@ -32,6 +34,9 @@ const Purchases = () => {
     });
     setFilter(info);
   }
+  function handleClick() {
+    setDisplay(!display);
+  }
 
   return (
     <>
@@ -40,7 +45,7 @@ const Purchases = () => {
         realizaram mais de 15 compras.
       </h1>
       <div>
-        <button onClick={() => setDisplay(!display)}>
+        <button onClick={handleClick}>
           {display ? "Mostrar" : "Esconder"}
         </button>
       </div>

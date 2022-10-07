@@ -4,7 +4,6 @@ const SalesAmount = () => {
   const [users, setUsers] = React.useState([]);
   const [sales, setSales] = React.useState(0);
   React.useEffect(() => {
-    api();
     filterSearch();
   }, [users]);
   async function api() {
@@ -12,10 +11,13 @@ const SalesAmount = () => {
     const json = await response.json();
     setUsers(json);
   }
+  api();
+
   function filterSearch() {
     let info = 0;
     users.forEach((user) => (info = info += user.countPurchase));
     setSales(info);
+    console.log(info);
   }
 
   return (

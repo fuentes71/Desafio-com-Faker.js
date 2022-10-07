@@ -14,19 +14,13 @@ const AddCostumer = () => {
     setUsers(json);
   }
 
-  console.log(users);
-  const handleInputChange = (e) => {
-    setUsers((prevState) => {
-      const newState = prevState.map((users) => {
-        return {
-          [e.target.name]: e.target.value,
-          ...users,
-        };
-      });
-      return newState;
+  console.log(client);
+  const onChange = (e) => {
+    setClient({
+      ...users,
+      [e.target.name]: e.target.value,
     });
   };
-  console.log(users);
   return (
     <>
       <h1>
@@ -38,42 +32,47 @@ const AddCostumer = () => {
       <label>Nome Completo</label>
       <input
         type="text"
+        id="name"
         name="name"
         value={users.name}
         placeholder="Nome e sobrenome"
-        onChange={(e) => handleInputChange(e)}
+        onChange={onChange}
       />
       <label>Data de aniversario</label>
       <input
         type="text"
+        id="birthdate"
         name="birthdate"
         value={users.birthdate}
         placeholder="00/00/0000"
-        onChange={(e) => handleInputChange(e)}
+        onChange={onChange}
       />
       <label>Sexo</label>
       <input
         type="text"
-        value={users.genre}
+        id="genre"
         name="genre"
+        value={users.genre}
         placeholder="genero"
-        onChange={(e) => handleInputChange(e)}
+        onChange={onChange}
       />
       <label>Data da ultima compra</label>
       <input
         type="text"
+        id="lastPurchaseDate"
         name="lastPurchaseDate"
         value={users.lastPurchaseDate}
         placeholder="00/00/0000"
-        onChange={(e) => handleInputChange(e)}
+        onChange={onChange}
       />
       <label>Total de compras</label>
       <input
         type="text"
+        id="countPurchase"
         name="countPurchase"
         value={users.countPurchase}
         placeholder="00"
-        onChange={(e) => handleInputChange(e)}
+        onChange={onChange}
       />
       <button type="submit">Enviar</button>
       <div>
