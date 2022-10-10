@@ -26,6 +26,7 @@ const Sales = () => {
           id: user.id,
           name: user.name,
           birthdate: user.birthdate,
+          genre: user.genre,
           lastPurchaseDate: user.lastPurchaseDate,
           countPurchase: user.countPurchase,
         };

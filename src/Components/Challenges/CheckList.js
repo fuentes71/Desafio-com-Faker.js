@@ -15,6 +15,7 @@ const CheckList = () => {
   }
   function filterSearch() {
     const info = [];
+    const verification = 0;
     setCheck(false);
     users
       .filter((user) => user.name.slice(0, 1))
@@ -24,11 +25,8 @@ const CheckList = () => {
         return info.push(firstName[0].toUpperCase());
       });
     info.map((user) => {
-      console.log(info);
       if (user === filter) {
         return setCheck(true);
-      } else {
-        return setCheck(false);
       }
     });
   }

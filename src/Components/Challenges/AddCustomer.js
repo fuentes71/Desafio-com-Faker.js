@@ -8,11 +8,7 @@ const AddCostumer = () => {
   React.useEffect(() => {
     api();
   }, []);
-  async function api() {
-    const response = await fetch(`http://localhost:3333/users?q=`);
-    const json = await response.json();
-    setUsers(json);
-  }
+  async function api() {}
 
   console.log(client);
   const onChange = (e) => {

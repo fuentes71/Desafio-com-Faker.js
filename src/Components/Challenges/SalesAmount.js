@@ -3,21 +3,19 @@ import React from "react";
 const SalesAmount = () => {
   const [users, setUsers] = React.useState([]);
   const [sales, setSales] = React.useState(0);
-  React.useEffect(() => {
-    filterSearch();
-  }, [users]);
+  React.useEffect(() => {}, []);
   async function api() {
     const response = await fetch(`http://localhost:3333/users?q=`);
     const json = await response.json();
     setUsers(json);
+    filterSearch();
   }
   api();
 
   function filterSearch() {
     let info = 0;
-    users.forEach((user) => (info = info += user.countPurchase));
+    users.forEach((user) => (info += user.countPurchase));
     setSales(info);
-    console.log(info);
   }
 
   return (

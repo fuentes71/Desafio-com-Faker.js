@@ -11,11 +11,7 @@ module.exports = () => {
   //Loop para gerar fakes
   for (let index = 1; index <= 5; index++) {
     const genre = faker.name.sex();
-    // eslint-disable-next-line no-loop-func
-    function random() {
-      return Math.floor(Math.random() * (20 - 1) + 1);
-    }
-    const firstName = () => {
+    const fullName = () => {
       if (genre === "Masculino") {
         return "male";
       } else {
@@ -26,7 +22,7 @@ module.exports = () => {
       id: index,
       genre: genre,
       name: faker.name.fullName({
-        sex: firstName(),
+        sex: fullName(),
       }),
       birthdate: `${
         faker.date.birthdate({ min: 1900, max: 2000, mode: "year" }).getDay() +
@@ -38,7 +34,7 @@ module.exports = () => {
       }/${
         faker.date
           .birthdate({ min: 1910, max: 2006, mode: "year" })
-          .getFullYear() + random()
+          .getFullYear() + Math.floor(Math.random() * (20 - 1) + 1)
       }`,
       lastPurchaseDate: `${
         faker.date.birthdate({ min: 1900, max: 2000, mode: "year" }).getDay() +
