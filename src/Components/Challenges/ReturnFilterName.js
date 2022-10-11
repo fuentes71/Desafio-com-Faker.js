@@ -25,6 +25,7 @@ const Filter = () => {
 
         return info.push(firstName[0]);
       }
+      return null;
     });
     setSearch(info);
   }

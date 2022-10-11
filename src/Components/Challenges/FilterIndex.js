@@ -26,7 +26,7 @@ const FilterName = () => {
             .toUpperCase()
         );
       }
-      setFilterName(info);
+      return setFilterName(info);
     });
   };
   function handleClick() {

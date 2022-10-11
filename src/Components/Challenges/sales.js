@@ -15,6 +15,7 @@ const Sales = () => {
 
   function searchSales() {
     let info = [];
+
     users.filter((user) => {
       const arrUser = user.lastPurchaseDate.substring(4).replace("/", "");
       const date = new Date().getFullYear();
@@ -30,8 +31,7 @@ const Sales = () => {
           lastPurchaseDate: user.lastPurchaseDate,
           countPurchase: user.countPurchase,
         };
-        info.push(obj);
-        console.log(info);
+        return info.push(obj);
       }
     });
     setSales(info);

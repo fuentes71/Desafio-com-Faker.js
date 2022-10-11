@@ -29,11 +29,11 @@ const Purchases = () => {
           countPurchase: user.countPurchase,
         };
         info.push(obj);
-        console.log(info);
       }
+      return setFilter(info);
     });
-    setFilter(info);
   }
+
   function handleClick() {
     setDisplay(!display);
   }

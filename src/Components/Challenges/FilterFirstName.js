@@ -25,7 +25,7 @@ const Filter = () => {
         return (info += 1);
       }
     });
-    setSearchQuantity(info);
+    return setSearchQuantity(info);
   }
 
   return (

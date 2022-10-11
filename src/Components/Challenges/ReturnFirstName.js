@@ -19,7 +19,7 @@ const FilterName = () => {
       .filter((user) => user.name.slice(0, 1))
       .map((user) => {
         const firstName = user.name.split(" ");
-        info.push(firstName[0]);
+        return info.push(firstName[0]);
       });
     setName(info);
   };

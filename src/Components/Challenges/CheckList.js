@@ -15,7 +15,6 @@ const CheckList = () => {
   }
   function filterSearch() {
     const info = [];
-    const verification = 0;
     setCheck(false);
     users
       .filter((user) => user.name.slice(0, 1))
@@ -28,6 +27,8 @@ const CheckList = () => {
       if (user === filter) {
         return setCheck(true);
       }
+
+      return null;
     });
   }
 

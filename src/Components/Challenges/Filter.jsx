@@ -31,8 +31,9 @@ const Filter = () => {
           lastPurchaseDate: user.lastPurchaseDate,
           countPurchase: user.countPurchase,
         };
-        info.push(obj);
+        return info.push(obj);
       }
+      return null;
     });
     setUsers(info);
   }

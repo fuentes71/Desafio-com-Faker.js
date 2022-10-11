@@ -4,7 +4,7 @@ const AddCostumer = () => {
   const [client, setClient] = React.useState([]);
   const [users, setUsers] = React.useState([]);
   const [display, setDisplay] = React.useState(false);
-
+  setUsers();
   React.useEffect(() => {
     api();
   }, []);

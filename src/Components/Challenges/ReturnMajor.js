@@ -18,7 +18,6 @@ const ReturnMajor = () => {
     users.filter((user) => {
       const arrUser = user.birthdate.substring(4).replace("/", "");
       const date = new Date().getFullYear();
-
       if (date - arrUser >= 18) {
         let obj = {
           id: user.id,
@@ -27,7 +26,7 @@ const ReturnMajor = () => {
           lastPurchaseDate: user.lastPurchaseDate,
           countPurchase: user.countPurchase,
         };
-        info.push(obj);
+        return info.push(obj);
       }
     });
     setMajor(info);
