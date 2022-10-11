@@ -7,6 +7,7 @@ const Filter = () => {
 
   React.useEffect(() => {
     api();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   async function api() {
     const response = await fetch(`http://localhost:3333/users?q=${filter}`);

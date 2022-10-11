@@ -33,6 +33,7 @@ const Sales = () => {
         };
         return info.push(obj);
       }
+      return null;
     });
     setSales(info);
   }

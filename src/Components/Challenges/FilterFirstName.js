@@ -6,7 +6,7 @@ const Filter = () => {
   const [search, setSearchQuantity] = React.useState();
   React.useEffect(() => {
     api();
-  }, []);
+  });
   async function api() {
     const response = await fetch(`http://localhost:3333/users?q=${filter}`);
     const json = await response.json();
@@ -24,6 +24,7 @@ const Filter = () => {
       if (arrUser) {
         return (info += 1);
       }
+      return null;
     });
     return setSearchQuantity(info);
   }
