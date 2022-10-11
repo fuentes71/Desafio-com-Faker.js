@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+![Logo of the project](https://github.com/fuentes71/Desafio-com-Faker.js/blob/main/public/Logo%20Fakerjs.jpg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Challenge in API Faker.js
+Tthis is a challenge using fakerJs api to test my skills.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technology 
 
-### `npm test`
+Here are the technologies used in this project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React: 18.2.0;
+* React-Fakers: 1.0.3-rc1;
+* Web-Vitals: 2.1.4;
+* Json-Server: 0.17.0;
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Services Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Github
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Dependency
+  - Node.js  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* To clone the project follow these steps.
+  - git clone "(...).git"
+  - cd "Filename" (optional, only needed if you start 'git clone' in a local folder on your PC.)
+  - npm install
+  
+  
 
-## Learn More
+## How to use
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 1 - Upon accessing, you will see the home page containing the entire challenge questionnaire and your answers for each challenge then <
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Homepage image](https://github.com/fuentes71/Desafio-com-Faker.js/blob/main/public/ScreenShot_appHome.png)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The main features of the application are:
+ - Publish Posts.
+ - Learn a lot of information <3
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Links
+  - Repository: https://github.com/fuentes71/Desafio-com-Faker.js
+    - In case of sensitive bugs like security vulnerabilities, please contact
+      matheus.fu.p@hotmail.com directly instead of using issue tracker. We value your effort
+      to improve the security and privacy of this project!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+  ## Versioning
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  1.0.0.0
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  ## Authors
+
+  * **Matheus Fuentes Pereira** 
+
+  Please follow github and join us!
+  Thanks to visiting me and good coding!
